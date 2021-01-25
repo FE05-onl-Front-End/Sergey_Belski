@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Задание 2</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+	
+	<script>
+		var data = {
+		    name:  "Артур",
+		    ourLost: 1000,
+		    ourArmy: 5000,
+		    enemiesLost: 10000,
+		    enemiesArmy: 12000,
+		};
+
+		let armyLeft = {
+			our: data.ourArmy - data.ourLost,
+		    enemies: data.enemiesArmy - data.enemiesLost,
+		}
+
+		let questionsPromptName = prompt('имя короля?', 'Артур');
+		let questionsPromptOurLost = prompt('потери армии короля?');
+		let questionsPromptOurArmy = prompt('сколько было воинов в армии короля?');
+		let questionsPromptEnemiesArmy = prompt('сколько врагов было?');
+		let questionsPromptEnemiesLost = prompt('сколько враги потеряли воинов?');
+		let questionsPromptEnemiesLeft = prompt('сколько вражеских войнов осталось?');
+		let questionsPromptOurLeft = prompt('сколько наших воинов осталось?');
+
+		let msgErrorNumber = 'и правда, кто их считает? -';
+
+		
+		let answer = {
+			msgAnswerName: questionsPromptName == '' || questionsPromptName == null || questionsPromptName != data.name ?
+				`"позор забыть имя короля, нашего повелителя ${data.name}a (хотя подсказка была на виду)"` : data.name,
+
+			msgAnswerOurLost: questionsPromptOurLost == '' || questionsPromptOurLost == null || questionsPromptOurLost != data.ourLost ?
+				`"${msgErrorNumber} ${data.ourLost}"` : data.ourLost,
+
+			msgAnswerOurArmy: questionsPromptOurArmy == '' || questionsPromptOurArmy == null || questionsPromptOurArmy != data.ourArmy ?
+			  	`"${msgErrorNumber} ${data.ourArmy}"`: data.ourArmy,
+
+			msgAnswerEnemiesArmy: questionsPromptEnemiesArmy == '' || questionsPromptEnemiesArmy == null || questionsPromptEnemiesArmy != data.enemiesArmy ?
+				`"${msgErrorNumber} ${data.enemiesArmy}"` : data.enemiesArmy,
+
+			msgAnswerEnemiesLost: questionsPromptEnemiesLost == '' || questionsPromptEnemiesLost == null || questionsPromptEnemiesLost != data.enemiesLost ?
+				`"${msgErrorNumber} ${data.enemiesLost}"` : data.enemiesLost,
+
+			msgAnswerEnemiesLeft: questionsPromptEnemiesLeft == '' || questionsPromptEnemiesLeft == null || questionsPromptEnemiesLeft != armyLeft.enemies ?
+				`"${msgErrorNumber} ${armyLeft.enemies}"` : armyLeft.enemies,
+
+			msgAnswerOurLeft: questionsPromptOurLeft == '' || questionsPromptOurLeft == null || questionsPromptOurLeft != armyLeft.our ?
+				`"${msgErrorNumber} ${armyLeft.our}"` : armyLeft.our,
+		};
+
+		alert(`Король ${answer.msgAnswerName}, мы победили вражескую армию в ${answer.msgAnswerEnemiesArmy}! Враг бежит, оставив на поле боя ${answer.msgAnswerEnemiesLost} павших воинов. Наши потери король ${answer.msgAnswerName} составили ${answer.msgAnswerOurLost} героически павших воинов от всей нашей армии в ${answer.msgAnswerOurArmy} солдат! Мы победили, сохранив ${answer.msgAnswerOurLeft}  воинов. И можем продолжить преследовать остатки вражеской армии в ${answer.msgAnswerEnemiesLeft} солдат. С победой король ${answer.msgAnswerName}!!`);
+
+	</script>
+	<!-- Yandex.Metrika counter --><!-- /Yandex.Metrika counter -->
+	<!-- Google Analytics counter --><!-- /Google Analytics counter -->
+</body>
+</html>
