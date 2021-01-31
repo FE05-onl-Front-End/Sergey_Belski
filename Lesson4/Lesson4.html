@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Lesson4</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+	
+
+	
+	<script>
+		const animals = [
+			{
+				animal: "лев",
+				name: "Король",
+				weight: 45,
+				isHealthy: true, //здоров
+				isAche: false,  //болен
+				isWellFed: true, //сытый
+				isHungry: false, //голодный 
+				warden: {
+					name: "Петр",
+					age: 48
+					}
+			},
+		 
+			{
+				animal: "кролик",
+				name: "Пушок",
+				weight: 5,
+				isHealthy: true, //здоров
+				isAche: false,	//болен
+				isWellFed: true, //сытый
+				isHungry: false, //голодный
+				warden: {
+					name: "Оля",
+					age: 24
+				}
+			},
+
+			{
+				animal: "горилла",
+				name: "Босс",
+				weight: 90,
+				isHealthy: true, //здоров
+				isAche: false, //болен
+				isWellFed: true, //сытый
+				isHungry: false, //голодный
+				warden: {
+					name: "Антон",
+					age: 36
+				}
+			},
+		];
+
+		function zoo () {
+			return {
+				deleteAnimal: function(objZoo, kindOfAnimal) {
+					for(let key in objZoo) {
+						if(objZoo[key].animal == kindOfAnimal) {
+							let statusHealth = 	objZoo[key].isHealthy == true && objZoo[key].isAche == false  ? "здоров" : "болен";
+							let statusFood = objZoo[key].isWellFed == true && objZoo[key].isHungry == false ? "сытый" : "голодный";
+
+							console.log(`
+							Из базы нашего зоопарка было удалено
+							 животное: ${objZoo[key].animal}
+							 по кличке: ${objZoo[key].name}
+							 весом: ${objZoo[key].weight}
+							 статус здоровья на момент удаления: ${statusHealth}
+							 на момент удаления: ${statusFood}
+							 смотрителем был ${objZoo[key].warden.name} возростом ${objZoo[key].warden.age} лет
+							`);
+							objZoo.splice(key, 1);	
+
+
+						}
+					}
+				},
+				addAnimal: (objZoo, params) => {
+					objZoo.push(params);
+
+					let statusHealth = 	params.isHealthy == true && params.isAche == false  ? "здоров" : "болен";
+					let statusFood = params.isWellFed == true && params.isHungry == false ? "сытый" : "голодный";
+
+					console.log(`
+
+						добавлено животное ${params.animal}
+						по кличке: ${params.name}
+						весом: ${params.weight}
+						статус здоровья на данный момент: ${statusHealth}
+						на данный момент: ${statusFood}
+						смотрителем стал ${params.warden.name} возростом ${params.warden.age} лет
+						`);
+				},
+				changeHelth: function(objZoo, kindOfAnimal, status) {
+					for(let key in objZoo) {
+						if(objZoo[key].animal == kindOfAnimal) {
+							if(status == false) {
+								objZoo[key].isHealthy = false;
+								objZoo[key].isAche = true;
+								console.log(`теперь животное ${objZoo[key].animal} болеет`);
+							} else {
+								objZoo[key].isHealthy = true;
+								objZoo[key].isAche = false;
+								console.log(`теперь животное ${objZoo[key].animal} здорово`);
+							}
+						}
+					}
+				},
+				changeFood: function(objZoo, kindOfAnimal, status) {
+					for (let key in objZoo) {
+						if(objZoo[key].animal == kindOfAnimal) {
+							if(status == false) {
+								objZoo[key].isWellFed = false;
+								objZoo[key].isHungry = true;
+								console.log(`теперь животное ${objZoo[key].animal} голодное`);
+							} else {
+								objZoo[key].isWellFed = true;
+								objZoo[key].isHungry = false;
+								console.log(`теперь животное ${objZoo[key].animal} сытое`);
+							}
+						}
+					}
+				},
+				changeWarden: function(objZoo, kindOfAnimal, nameWarden, ageWarden) {
+					for(let key in objZoo) {
+						if(objZoo[key].animal == kindOfAnimal) {
+							objZoo[key].warden.name = nameWarden;
+							objZoo[key].warden.age = ageWarden;
+							console.log(`у ${objZoo[key].animal} поменялся смотритель, теперь смотритель ${objZoo[key].warden.name}, которому ${objZoo[key].warden.age} лет`)
+						}
+					}
+				}
+			}
+		};
+
+		let zooManager = zoo();
+
+		zooManager.deleteAnimal(animals, "лев"); //удалить животное
+
+		zooManager.addAnimal(animals, // добавить животное с параметрами (кдюч, значение)
+		{
+			animal: "панда",
+			name: "По",
+			weight: 130,
+			isHealthy: true,
+			isAche: false,
+			isWellFed: false, //сытый
+			isHungry: true,
+			warden: {
+				name: "Иван",
+				age: 30
+			}
+		});
+
+		zooManager.changeHelth(animals, "кролик", false); //сменить статус здоровья
+
+		zooManager.changeFood(animals, "кролик", false); //сменить статус сыт или голоден
+
+		zooManager.changeWarden(animals, "кролик", "Иван", 30); // заменить смотрителя у животного
+
+		console.log(animals);
+
+
+	</script>
+	<!-- Yandex.Metrika counter --><!-- /Yandex.Metrika counter -->
+	<!-- Google Analytics counter --><!-- /Google Analytics counter -->
+</body>
+</html>
