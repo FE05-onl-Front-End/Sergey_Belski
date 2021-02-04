@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Заголовок</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+	
+
+	
+	<script>
+
+		let usersAge = {
+			ivanov: '19',
+			petrov: '17',
+			sidorov: '21'
+		};
+
+		let userAdult = [];
+		let userMinor = [];
+
+		const sortUser = function(obj) {
+
+			Object.keys(obj).forEach((key) => {
+				if(obj[key] >= 18) {
+					userAdult.push({ name: key, age: obj[key] });
+				} else {
+					userMinor.push({ name: key, age: obj[key] });
+				}
+			});
+
+			console.log(userAdult);
+			console.log(userMinor);
+		};
+
+
+		sortUser(usersAge);
+
+	</script>
+	<!-- Yandex.Metrika counter --><!-- /Yandex.Metrika counter -->
+	<!-- Google Analytics counter --><!-- /Google Analytics counter -->
+</body>
+</html>
