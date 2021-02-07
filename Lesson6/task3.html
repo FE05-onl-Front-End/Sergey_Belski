@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Заголовок</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+	
+
+	
+	<script>
+
+		/**
+		  * Описание задачи: Напишите функцию, которая разворачивает массив в обратном порядке.
+		  * Ожидаемый результат: [1, 2, 3] => [3, 2, 1]
+		  * Сложность задачи: 1 of 5
+		  * @param {Array} array - Массив любых элементов
+		  * @returns {Array}
+		*/
+		const reverse = (array) => {
+			return array.reduceRight((result, item) => {
+				result.push(item);
+				return result;
+			}, []);
+		}
+
+		const data = [1, 2, 3];
+		console.log(reverse(data)); // [3, 2, 1]
+
+
+	</script>
+	<!-- Yandex.Metrika counter --><!-- /Yandex.Metrika counter -->
+	<!-- Google Analytics counter --><!-- /Google Analytics counter -->
+    
+</body>
+</html>
