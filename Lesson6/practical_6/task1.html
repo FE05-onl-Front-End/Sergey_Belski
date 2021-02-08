@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Заголовок</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+	
+
+	
+	<script>
+        //есть массив с разными значениями, строки или числа 
+        // [43, 54, 12, 'text', 'TeXt', 54, "54", 0, "car", "CAR", 43]
+
+
+        // функция примет данный массив и вернет массив объектов:
+        // [
+        //   {
+        //     value: 43,
+        //     count: 2,
+        //   }
+        // ]
+
+
+
+        // первый пункт вам нужно подготовить новый массив с объектами
+        // число объектов = числу эллементов в представленном массиве
+        // сначала вам нужно выяснить число повторений для каждого элемента массива  + не забываем уитывать регистры Car = CAR 
+        // придумать способ как временно хранить данные по числу повторений эелемента
+        // потом эти данные закидывать в объект массива (пользуемся map)
+        
+        // **********       + alert вывести самое повторяющиеся значение  ДОПОЛНИТЕЛЬНО
+
+
+        let arr = [43, 54, 12, 'text', 'TeXt', 54, "54", 0, "car", "CAR", 43];
+     
+        const getArray = (array) => {
+        	const result = {};
+        	let newArray;
+
+        	newArray = array.map((item) => {
+        		return {value: item.toString().toLowerCase()};
+        	});
+        	
+        	newArray.forEach(item => result[item.value] ? result[item.value]++ : result[item.value] = 1);
+  			
+			
+
+			let resultObj = Object.keys(result).map((item) => {
+				return {
+					value: item,
+					count: result[item]
+				};
+	       	});
+	       	
+	       	return resultObj;       
+        }
+
+       	const getMax = (func) => {
+			let max = func.reduce((resultReduce, item) => {
+				if(resultReduce.count > item.count) {
+					return resultReduce;
+				} else {
+					return item;
+				}
+			}, {});
+
+			alert(`самое повторяющиеся значение: ${max.value}. количество повторений: ${max.count} `);
+       	}
+
+        
+        console.log(getArray(arr));
+        getMax(getArray(arr));
+
+
+	</script>
+	<!-- Yandex.Metrika counter --><!-- /Yandex.Metrika counter -->
+	<!-- Google Analytics counter --><!-- /Google Analytics counter -->
+    
+</body>
+</html>
