@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Заголовок</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+	
+
+	
+	<script>
+		// Сделайте функцию, каждый вызов который будет генерировать случайные числа от 1 до 100, но так, чтобы они не повторялись, пока не будут перебраны все числа из этого промежутка. Решите задачу через замыкания - в замыкании должен хранится массив чисел, которые уже были сгенерированы функцией.
+
+		function getRandom(min, max) {
+		    let usedNumbers = [];
+
+		    function randomWithin() {
+		        if(usedNumbers.length == max) {
+		        	usedNumbers = [];
+		        }
+
+		        let num = Math.floor(Math.random() * max) + min;
+
+		        if(usedNumbers.includes(num)) {
+		        	return randomWithin();
+		        } else {
+		        	return (usedNumbers.push(num), num);
+		        }
+		    }
+		    return randomWithin;
+		}
+
+		let callFunc = getRandom(1, 100);
+
+		console.log(callFunc());
+		console.log(callFunc());
+		console.log(callFunc());
+		console.log(callFunc());
+		console.log(callFunc());
+		console.log(callFunc());
+		console.log(callFunc());
+		console.log(callFunc());
+
+	</script>
+	<!-- Yandex.Metrika counter --><!-- /Yandex.Metrika counter -->
+	<!-- Google Analytics counter --><!-- /Google Analytics counter -->
+</body>
+</html>
