@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Заголовок</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+	
+
+	
+	<script>
+
+		/**
+		  * Описание задачи: Напишите функцию, которая сравнивает два массива и возвращает true, если они идентичны.
+		  * Ожидаемый результат: ([1, 2, 3], [1, 2, 3]) => true
+		  * @param {Array} firstArray - Массив с примитивными значениями
+		  * @param {Array} secondArray - Массив с примитивными значениями
+		  * @returns {boolean}
+		*/
+		const isEqual = (firstArray, secondArray) => {
+			
+			return firstArray.join() == secondArray.join();
+			
+		}
+
+		const arr1 = [1, 2, 3, 4];
+		const arr2 = [1, 2, 3, 4];
+		const arr3 = [1, 2, 3, 5];
+		const arr4 = [1, 2, 3, 4, 5];
+
+		console.log(isEqual(arr1, arr2)); // true
+		console.log(isEqual(arr1, arr3)); // false
+		console.log(isEqual(arr1, arr4)); // false
+
+
+	</script>
+	<!-- Yandex.Metrika counter --><!-- /Yandex.Metrika counter -->
+	<!-- Google Analytics counter --><!-- /Google Analytics counter -->
+    
+</body>
+</html>
