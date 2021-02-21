@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Paint</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+	
+	<div class="wrapper">
+		<div class="paint">
+			<select id="paint_select" onchange="changeSelect();">
+				<option value=""></option>
+				<option value="triangle">треугольник</option>
+				<option value="circle">круг</option>
+				<option value="oval">овал</option>
+				<option value="rectangle">прямоугольник</option>
+				<option value="square">квадрат</option>
+			</select>
+
+			<div class="paint_selected">
+				<div class="paint_figure">
+					<div class="triangle">
+						<svg class="figure_svg" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+							<path id="svg_1" d="m0.74902,174.99896l98.5,-174.00001l98.5,174.00001l-196.99999,0z" stroke-width="2" stroke="#000"/>
+						</svg>
+					</div>
+					<div class="circle">
+						<svg class="figure_svg" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+							<ellipse ry="75" rx="75" id="svg_4" cy="100" cx="100" fill-opacity="null" stroke-opacity="null" stroke-width="2" stroke="#000"/>
+						</svg>
+					</div>
+					<div class="oval">
+						<svg class="figure_svg" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+							<ellipse ry="52.5" rx="89.5" id="svg_4" cy="100" cx="100" fill-opacity="null" stroke-opacity="null" stroke-width="2" stroke="#000"/>
+						</svg>
+					</div>
+					<div class="rectangle">
+						<svg class="figure_svg" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+							<rect id="svg_3" height="119" width="195" y="35.95001" x="2.5" fill-opacity="null" stroke-opacity="null" stroke-width="2" stroke="#000"/>
+						</svg>
+					</div>
+					<div class="square">
+						<svg class="figure_svg" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+							<rect id="svg_3" height="150" width="150" y="25" x="25.5" fill-opacity="null" stroke-opacity="null" stroke-width="2" stroke="#000"/>
+						</svg>
+					</div>
+				</div>
+				<div class="paint_color">
+					<div class="paint_color__title">Палитра</div>
+
+					<div class="paint_color_selected">
+						<div class="grey"></div>
+						<div class="blue"></div>
+						<div class="green"></div>
+						<div class="purple"></div>
+						<div class="yellow"></div>
+						<div class="pink"></div>
+						<div class="orange"></div>
+						<div class="tomato"></div>
+						<div class="aqua"></div>
+						<div class="indigo"></div>
+					</div>
+
+					<div class="paint_btn">Сбросить</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<script src="js/common.js"></script>
+	<!-- Yandex.Metrika counter --><!-- /Yandex.Metrika counter -->
+	<!-- Google Analytics counter --><!-- /Google Analytics counter -->
+</body>
+</html>
