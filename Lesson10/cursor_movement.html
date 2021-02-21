@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>onmousemove</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+
+	<style>
+		* {
+			margin: 0;
+		}
+		#block {
+			width: 100vw;
+			height: 100vh;
+			background-color: red;
+			position: relative;
+			overflow: hidden;
+			cursor: pointer;
+		}
+
+		#circle {
+			background: #fff;
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 40px;
+			height: 40px;
+			z-index: 1;
+		}
+	</style>
+
+	<div id="block">
+		<div id="circle"></div>
+	</div>
+
+	<script>
+		let mouseX = 0;
+		let mouseY = 0;
+		const block = document.getElementById("block");
+		const circle = document.getElementById("circle");
+
+		function mousePosition(e) {
+			mouseX = e.clientX 
+			mouseY = e.clientY;
+
+			circle.style.top = mouseY + 'px';
+			circle.style.left = mouseX + 'px';
+			console.log(mouseX, mouseY);
+		}
+
+		block.addEventListener("mousemove", mousePosition, false);
+	</script>
+	<!-- Yandex.Metrika counter --><!-- /Yandex.Metrika counter -->
+	<!-- Google Analytics counter --><!-- /Google Analytics counter -->
+</body>
+</html>
