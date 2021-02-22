@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Lesson9</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+	<style>
+		table th,
+		table td {
+			border: 1px solid #000;
+			padding: 5px 15px;
+		}
+	</style>
+
+	<div class="wrapper">
+		
+	</div>
+	
+	<script>
+		const person = [
+			{
+			   firstName: 'Ashton',
+			   lastName: 'Kutcher',
+			   age: 40
+			}, {
+			   firstName: 'Bradley',
+			   lastName: 'Pitt',
+			   age: 54
+			}, {
+			   firstName: 'Hannah',
+			   lastName: 'Dakota',
+			   age: 15
+			},
+		]
+
+		const wrapper = document.querySelector('.wrapper');
+		const table = document.createElement('table');
+
+		function createTable(array) {
+			table.style = 'border: 1px solid #000; border-collapse: collapse;';
+			wrapper.append(table);
+
+			let tr = document.createElement('tr');
+			table.append(tr);
+
+			Object.keys(array[0]).forEach((item) => {
+				let th = document.createElement('th');
+
+				th.innerText = item;
+				tr.append(th);
+			});
+		};
+
+		function fillTable(array) {
+			createTable(array);
+
+			array.forEach((item) => {
+				let tr = document.createElement('tr');
+				table.append(tr);
+				
+				Object.keys(item).forEach((item_td) => {
+					let td = document.createElement('td');
+
+					td.innerText = item[item_td];
+					tr.append(td);
+
+					if(item.age >= 18) {
+						td.style.background = "green"
+					} else {
+						td.style.background = "yellow"
+					}
+				});
+			});
+		};
+
+		fillTable(person);
+
+	</script>
+	<!-- Yandex.Metrika counter --><!-- /Yandex.Metrika counter -->
+	<!-- Google Analytics counter --><!-- /Google Analytics counter -->
+</body>
+</html>
